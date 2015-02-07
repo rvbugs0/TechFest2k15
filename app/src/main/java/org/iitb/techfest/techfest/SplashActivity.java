@@ -189,7 +189,7 @@ public interface EventApi
     
     //filename would be given dynamically
     
-    public void getEventFeeds(@Path("filename") String filename,Callback<List<EventInfo>> response);
+    public void getEventFeeds(@Path("filename") String filename,Callback<List<Event>> response);
 
 }
 
@@ -197,7 +197,7 @@ public interface EventApi
                 RestAdapter adapter;
                 adapter = new RestAdapter.Builder().setEndpoint("http://www.yoursite.com").build();
                 EventApi api = adapter.create(EventApi.class);
-        api.getEventFeeds("GetEvents.php", new Callback<List<EventInfo>>()
+        api.getEventFeeds("GetEvents.php", new Callback<List<Event>>()
 {
                         @Override
                         public void success(List<Event> events, Response response) {
