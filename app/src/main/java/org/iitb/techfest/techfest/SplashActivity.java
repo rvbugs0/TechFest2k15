@@ -53,6 +53,8 @@ public class SplashActivity extends Activity {
             Log.d("ProgressBar","onPreExecute : "+loader);
         }
 
+
+/*
         @Override
         protected List<String[]> doInBackground(String... url) {
             List<String[]> data = new ArrayList<String[]>();
@@ -170,6 +172,52 @@ public class SplashActivity extends Activity {
             return data;
         }
     }
+
+
+*/
+
+// using retrofit
+/*
+
+need to create an interface
+
+
+public interface EventApi
+{
+ //   @GET("/GetEvents.php")
+  @GET("/yourDirectoryOnHost/{filename}")
+    
+    //filename would be given dynamically
+    
+    public void getEventFeeds(@Path("filename") String filename,Callback<List<EventInfo>> response);
+
+}
+
+
+                RestAdapter adapter;
+                adapter = new RestAdapter.Builder().setEndpoint("http://www.yoursite.com").build();
+                EventApi api = adapter.create(EventApi.class);
+        api.getEventFeeds("GetEvents.php", new Callback<List<EventInfo>>()
+{
+                        @Override
+                        public void success(List<Event> events, Response response) {
+                                updateDisplay(setList);
+                        }
+
+                        @Override
+                        public void failure(RetrofitError retrofitError) {
+                        failureCall();
+                        }
+                    });
+
+
+*/
+
+
+
+
+
+
 
     private void startMainActivity(){
         int i=0;
